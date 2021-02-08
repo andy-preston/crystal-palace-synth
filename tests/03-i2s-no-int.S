@@ -4,7 +4,7 @@
     .include "stm32/rcc/ahb1enr.inc"
     .include "stm32/dma/registers.inc"
     .include "stm32/dma/stream-cr.inc"
-    .include "inc/spi/registers.inc"
+    .include "stm32/spi/registers.inc"
 
 entry_point:
     // Enable the DMA clock
@@ -13,6 +13,15 @@ entry_point:
     ldr r1, [r0]
     orr r1, r1, RCC_AHB1Periph_DMA1
     str r1, [r0]
+
+    ////////////////////////////////////////////////////////////////////////////
+    //
+    // UDA1334A defaults to DataSize_Word
+    // This test either has to use DMA_PeripheralDataSize_Word and
+    // DMA_MemoryDataSize_Word or pin SF1 on the UDA1334A board needs to be
+    // pulled high so set the UDA1334A into HalfWord (16 bit) mode
+    //
+    ////////////////////////////////////////////////////////////////////////////
 
     // Set the DMA stream options...
     // Note there are further writes to the DMA control register later
@@ -30,11 +39,6 @@ entry_point:
     )
     movw r1, #:lower16:DMA_STREAM_OPTIONS
     movt r1, #:upper16:DMA_STREAM_OPTIONS
-    ////////////////////////////////////////////////////////////////////////////
-    //
-    // check this store will be full 32 bit
-    //
-    ////////////////////////////////////////////////////////////////////////////
     str r1, [r0]
 
     movw r2, #:lower16:DMA1_S7_NDTR
@@ -55,8 +59,3 @@ entry_point:
     movt r3, #:upper16:SPI3_DR
     str r3, [r2]
 
-    .equ DMA_INTERRUPT_OPTIONS, DMA_SxCR_TCIE | DMA_SxCR_HTIE
-    movw r3, #:lower16:DMA_INTERRUPT_OPTIONS
-    movt r3, #:upper16:DMA_INTERRUPT_OPTIONS
-    orr r1, r1, r3 // r1 already has DMA_STREAM_OPTIONS
-    str r1, [r0]   // r0 already has DMA1_S7_CR
