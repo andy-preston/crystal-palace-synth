@@ -33,7 +33,7 @@ then
     ELF=$(change_ext $1 '.elf')
     HEX=$(change_ext $1 '.hex')
     LST=$(change_ext $1 '-full.lst')
-    cmd "arm-none-eabi-ld -T link.ld -o $ELF $OBJECT_FILES"
+    cmd "arm-none-eabi-ld -T ./build/link.ld -o $ELF $OBJECT_FILES"
     cmd "arm-none-eabi-objdump -s -d $ELF" $LST
     cmd "arm-none-eabi-objcopy -O ihex $ELF $HEX"
 fi
