@@ -1,0 +1,100 @@
+/* Based on C header file by STMicroelectronics
+ *
+ *******************************************************************************
+ *
+ * <h2><center>&copy; COPYRIGHT 2013 STMicroelectronics</center></h2>
+ *
+ * Licensed under MCD-ST Liberty SW License Agreement V2, (the "License");
+ * You may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at:
+ *
+ *        http://www.st.com/software_license_agreement_liberty_v2
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ *******************************************************************************
+ */
+
+.equ GPIO_MODER_0_INPUT,     0b00 // Input (reset state)
+.equ GPIO_MODER_0_OUTPUT,    0b01 // General purpose output mode
+.equ GPIO_MODER_0_ALTERNATE, 0b10 // Alternate function mode
+.equ GPIO_MODER_0_ANALOG,    0b11 // Analog mode
+
+.equ GPIO_MODER_1_INPUT,     GPIO_MODER_0_INPUT << 2
+.equ GPIO_MODER_1_OUTPUT,    GPIO_MODER_0_OUTPUT << 2
+.equ GPIO_MODER_1_ALTERNATE, GPIO_MODER_0_ALTERNATE << 2
+.equ GPIO_MODER_1_ANALOG,    GPIO_MODER_0_ANALOG << 2
+
+.equ GPIO_MODER_2_INPUT,     GPIO_MODER_0_INPUT << 4
+.equ GPIO_MODER_2_OUTPUT,    GPIO_MODER_0_OUTPUT << 4
+.equ GPIO_MODER_2_ALTERNATE, GPIO_MODER_0_ALTERNATE << 4
+.equ GPIO_MODER_2_ANALOG,    GPIO_MODER_0_ANALOG << 4
+
+.equ GPIO_MODER_3_INPUT,     GPIO_MODER_0_INPUT << 6
+.equ GPIO_MODER_3_OUTPUT,    GPIO_MODER_0_OUTPUT << 6
+.equ GPIO_MODER_3_ALTERNATE, GPIO_MODER_0_ALTERNATE << 6
+.equ GPIO_MODER_3_ANALOG,    GPIO_MODER_0_ANALOG << 6
+
+.equ GPIO_MODER_4_INPUT,     GPIO_MODER_0_INPUT << 8
+.equ GPIO_MODER_4_OUTPUT,    GPIO_MODER_0_OUTPUT << 8
+.equ GPIO_MODER_4_ALTERNATE, GPIO_MODER_0_ALTERNATE << 8
+.equ GPIO_MODER_4_ANALOG,    GPIO_MODER_0_ANALOG << 8
+
+.equ GPIO_MODER_5_INPUT,     GPIO_MODER_0_INPUT << 10
+.equ GPIO_MODER_5_OUTPUT,    GPIO_MODER_0_OUTPUT << 10
+.equ GPIO_MODER_5_ALTERNATE, GPIO_MODER_0_ALTERNATE << 10
+.equ GPIO_MODER_5_ANALOG,    GPIO_MODER_0_ANALOG << 10
+
+.equ GPIO_MODER_6_INPUT,     GPIO_MODER_0_INPUT << 12
+.equ GPIO_MODER_6_OUTPUT,    GPIO_MODER_0_OUTPUT << 12
+.equ GPIO_MODER_6_ALTERNATE, GPIO_MODER_0_ALTERNATE << 12
+.equ GPIO_MODER_6_ANALOG,    GPIO_MODER_0_ANALOG << 12
+
+.equ GPIO_MODER_7_INPUT,     GPIO_MODER_0_INPUT << 14
+.equ GPIO_MODER_7_OUTPUT,    GPIO_MODER_0_OUTPUT << 14
+.equ GPIO_MODER_7_ALTERNATE, GPIO_MODER_0_ALTERNATE << 14
+.equ GPIO_MODER_7_ANALOG,    GPIO_MODER_0_ANALOG << 14
+
+.equ GPIO_MODER_8_INPUT,     GPIO_MODER_0_INPUT << 16
+.equ GPIO_MODER_8_OUTPUT,    GPIO_MODER_0_OUTPUT << 16
+.equ GPIO_MODER_8_ALTERNATE, GPIO_MODER_0_ALTERNATE << 16
+.equ GPIO_MODER_8_ANALOG,    GPIO_MODER_0_ANALOG << 16
+
+.equ GPIO_MODER_9_INPUT,     GPIO_MODER_0_INPUT << 18
+.equ GPIO_MODER_9_OUTPUT,    GPIO_MODER_0_OUTPUT << 18
+.equ GPIO_MODER_9_ALTERNATE, GPIO_MODER_0_ALTERNATE << 18
+.equ GPIO_MODER_9_ANALOG,    GPIO_MODER_0_ANALOG << 18
+
+.equ GPIO_MODER_10_INPUT,     GPIO_MODER_0_INPUT << 20
+.equ GPIO_MODER_10_OUTPUT,    GPIO_MODER_0_OUTPUT << 20
+.equ GPIO_MODER_10_ALTERNATE, GPIO_MODER_0_ALTERNATE << 20
+.equ GPIO_MODER_10_ANALOG,    GPIO_MODER_0_ANALOG << 20
+
+.equ GPIO_MODER_11_INPUT,     GPIO_MODER_0_INPUT << 22
+.equ GPIO_MODER_11_OUTPUT,    GPIO_MODER_0_OUTPUT << 22
+.equ GPIO_MODER_11_ALTERNATE, GPIO_MODER_0_ALTERNATE << 22
+.equ GPIO_MODER_11_ANALOG,    GPIO_MODER_0_ANALOG << 22
+
+.equ GPIO_MODER_12_INPUT,     GPIO_MODER_0_INPUT << 24
+.equ GPIO_MODER_12_OUTPUT,    GPIO_MODER_0_OUTPUT << 24
+.equ GPIO_MODER_12_ALTERNATE, GPIO_MODER_0_ALTERNATE << 24
+.equ GPIO_MODER_12_ANALOG,    GPIO_MODER_0_ANALOG << 24
+
+.equ GPIO_MODER_13_INPUT,     GPIO_MODER_0_INPUT << 26
+.equ GPIO_MODER_13_OUTPUT,    GPIO_MODER_0_OUTPUT << 26
+.equ GPIO_MODER_13_ALTERNATE, GPIO_MODER_0_ALTERNATE << 26
+.equ GPIO_MODER_13_ANALOG,    GPIO_MODER_0_ANALOG << 26
+
+.equ GPIO_MODER_14_INPUT,     GPIO_MODER_0_INPUT << 28
+.equ GPIO_MODER_14_OUTPUT,    GPIO_MODER_0_OUTPUT << 28
+.equ GPIO_MODER_14_ALTERNATE, GPIO_MODER_0_ALTERNATE << 28
+.equ GPIO_MODER_14_ANALOG,    GPIO_MODER_0_ANALOG << 28
+
+.equ GPIO_MODER_15_INPUT,     GPIO_MODER_0_INPUT << 30
+.equ GPIO_MODER_15_OUTPUT,    GPIO_MODER_0_OUTPUT << 30
+.equ GPIO_MODER_15_ALTERNATE, GPIO_MODER_0_ALTERNATE << 30
+.equ GPIO_MODER_15_ANALOG,    GPIO_MODER_0_ANALOG << 30
