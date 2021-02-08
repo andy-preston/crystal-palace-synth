@@ -1,2 +1,6 @@
 tables/*.inc
+*.lst
+*.o
+*.hex
+*.elf
 doc_c/*
