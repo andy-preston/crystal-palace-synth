@@ -1,4 +1,4 @@
-Parts of this software (./stm32/*) are licenced under
+Parts of this software (./stm32/* ./src/vector_table.s) are licenced under
 MCD-ST Liberty SW License Agreement V2
 http://www.st.com/software_license_agreement_liberty_v2
 
