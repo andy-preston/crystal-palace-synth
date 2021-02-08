@@ -4,9 +4,7 @@
     .include "stm32/rcc/ahb1enr.inc"
     .include "stm32/gpio/registers.inc"
     .include "stm32/gpio/moder.inc"
-
-    .section .text, "ax"
-    .global Reset_handler
+    .include "inc/main.inc"
 
 Reset_handler:
     // Enable the GPIO-C clock

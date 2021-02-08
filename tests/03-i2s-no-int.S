@@ -5,8 +5,9 @@
     .include "stm32/dma/registers.inc"
     .include "stm32/dma/stream-cr.inc"
     .include "stm32/spi/registers.inc"
+    .include "inc/main.inc"
 
-entry_point:
+Reset_handler:
     // Enable the DMA clock
     movw r0, #:lower16:RCC_AHB1ENR
     movt r0, #:upper16:RCC_AHB1ENR
