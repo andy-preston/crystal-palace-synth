@@ -20,12 +20,13 @@
  */
 
     .include "inc/preamble.inc"
-    .section .text, "a"
+    .section .text, "ax"
     .org 0
 
     // weak aliases will be overridden by any function with the same name
 
     .thumb_set reserved,  Default_handler
+    .global Default_handler
 
 vector_table:
     .word _estack                                                        // 0000
@@ -416,3 +417,6 @@ vector_table:
     .thumb_set SPI4_handler,  Default_handler
 
     .size vector_table, . - vector_table
+
+Default_handler:
+    b Default_handler

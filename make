@@ -24,7 +24,7 @@ if [ "$1" != "clean" ]
 then
     python3 ./build/generator.py
     OBJECT_FILES=""
-    for SRC in src/vector_table.s src/default_handler.s $1
+    for SRC in stm32/vector_table.s $1
     do
         LST=$(change_ext $SRC '.lst')
         OBJ=$(change_ext $SRC '.o')
