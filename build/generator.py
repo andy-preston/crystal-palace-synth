@@ -8,7 +8,6 @@ try:
     size = 32 ** 2  # 32 bits
     inc = pi2 / 1024  # 1024 elements
     theta = 0.0
-    testSineTable.write('testSineTable:\n')
     while (theta < pi2):
         testSineTable.write(
             '    .4byte ' + str(int(size * sin(theta) + 1.0)) + '\n'
