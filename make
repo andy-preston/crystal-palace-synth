@@ -22,6 +22,7 @@ done
 
 if [ "$1" != "clean" ]
 then
+    python3 ./build/generator.py
     OBJECT_FILES=""
     for SRC in src/vector_table.s src/default_handler.s $1
     do
