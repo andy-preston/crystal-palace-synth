@@ -13,10 +13,8 @@ try:
     theta = 0.0
     words = 0
     while (theta < pi2):
-        if words == 4:
-            testSineTable.write('\n')
-        testSineTable.write('    .4byte' if words == 0 else ',')
-        testSineTable.write(' ' + str(int(
+        testSineTable.write('    .4byte ' if words == 0 else ', ')
+        testSineTable.write(str(int(
             size * (sin(theta) + 1.0)
         )))
         words = words + 1
