@@ -8,7 +8,7 @@ if not path.isdir('./tables'):
 testSineTable = open('./tables/testSine.inc', 'w')
 try:
     pi2 = pi * 2
-    size = 32 ** 2  # 32 bits
+    size = 2 ** 32  # 32 bits
     inc = pi2 / 1024  # 1024 elements
     theta = 0.0
     while (theta < pi2):
