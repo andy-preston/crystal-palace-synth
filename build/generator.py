@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 
 from math import sin
+from os import mkdir, path
 
+if not path.isdir('./tables'):
+    mkdir('./tables')
 testSineTable = open('./tables/testSine.inc', 'w')
 try:
     pi2 = 3.1415 * 2
