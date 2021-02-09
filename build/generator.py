@@ -12,9 +12,9 @@ try:
     inc = pi2 / 1024  # 1024 elements
     theta = 0.0
     while (theta < pi2):
-        testSineTable.write(
-            '    .4byte ' + str(int(size * sin(theta) + 1.0)) + '\n'
-        )
+        testSineTable.write('    .4byte' + str(int(
+            size * (sin(theta) + 1.0)
+        )))
         theta = theta + inc
 finally:
     testSineTable.close()
