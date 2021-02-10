@@ -5,7 +5,7 @@ MEMORY {
 
 ENTRY(Reset_handler)
 
-PROVIDE (_estack = ALIGN(ORIGIN(RAM) + LENGTH(RAM) - 8, 8));
+PROVIDE (_estack = ORIGIN(RAM) + LENGTH(RAM));
 
 SECTIONS
 {
