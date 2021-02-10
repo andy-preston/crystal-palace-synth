@@ -8,6 +8,19 @@
     .include "inc/main.inc"
 
 Reset_handler:
+    movw r1, #:lower16:testSineTable
+    movt r1, #:upper16:testSineTable
+    movw r2, #:lower16:audioBuffer
+    movt r2, #:upper16:audioBuffer
+    movw r3, #:lower16:testSineTableEnd
+    movt r3, #:upper16:testSineTableEnd
+CopyDataLoop:
+    cmp r1, r3
+    ittt ls
+    ldrls r0, [r1], #4
+    strls r0, [r2], #4
+    bls CopyDataLoop
+
     // Enable the DMA clock
     movw r0, #:lower16:RCC_AHB1ENR
     movt r0, #:upper16:RCC_AHB1ENR
@@ -46,14 +59,14 @@ Reset_handler:
 
     movw r2, #:lower16:DMA1_S7_NDTR
     movt r2, #:upper16:DMA1_S7_NDTR
-    movw r3, #:lower16:BUFFER_SIZE
-    movt r3, #:upper16:BUFFER_SIZE
+    movw r3, #:lower16:bufferSize
+    movt r3, #:upper16:bufferSize
     str r3, [r2]
 
     movw r2, #:lower16:DMA1_S7_M0AR
     movt r2, #:upper16:DMA1_S7_M0AR
-    movw r3, #:lower16:audio_buffer
-    movt r3, #:upper16:audio_buffer
+    movw r3, #:lower16:audioBuffer
+    movt r3, #:upper16:audioBuffer
     str r3, [r2]
 
     movw r2, #:lower16:DMA1_S7_PAR
@@ -62,5 +75,12 @@ Reset_handler:
     movt r3, #:upper16:SPI3_DR
     str r3, [r2]
 
+    .section .data
+    .align 4
 testSineTable:
-    .include "./tables/testSine.inc"
+    .include "tables/testSine.inc"
+testSineTableEnd:
+    .equ bufferSize, testSineTableEnd - testSineTable
+
+    .section .bss
+    .lcomm audioBuffer, bufferSize
