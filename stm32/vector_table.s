@@ -418,5 +418,6 @@ vector_table:
 
     .size vector_table, . - vector_table
 
+    .thumb_func
 Default_handler:
     b Default_handler
