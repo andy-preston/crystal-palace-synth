@@ -26,7 +26,6 @@ Reset_handler:
     movt r3, #0x000d
 .delay\@:
     subs r3, 1
-    it ne
     bne .delay\@
     .endm
 
