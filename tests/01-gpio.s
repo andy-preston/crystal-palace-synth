@@ -24,9 +24,9 @@ Reset_handler:
     .macro delay
     movw r3, #0
     movt r3, #0x000d
-.delay\@:
+delay\@:
     subs r3, 1
-    bne .delay\@
+    bne delay\@
     .endm
 
     movw r2, 0b00100000     // pin 13 if accessing BSRR8 or BSRR24 in byte mode
@@ -38,10 +38,10 @@ Reset_handler:
     movw r1, #:lower16:GPIOC_BSRR24 // write r2 here to reset bit
     movt r1, #:upper16:GPIOC_BSRR24 // last byte of BSRR -- BR8 - BR15
 
-.loop:
+loop:
     strb r2, [r0] // r0 = set bit
     delay
     strb r2, [r1] // r1 = reset bit
     delay
 
-    b .loop
+    b loop
