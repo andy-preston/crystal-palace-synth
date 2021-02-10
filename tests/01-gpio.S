@@ -44,5 +44,4 @@ Reset_handler:
     strb r2, [r1] // r1 = reset bit
     delay
 
-    bkpt
     b .loop
