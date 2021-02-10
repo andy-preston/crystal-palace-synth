@@ -13,10 +13,11 @@ SECTIONS
         . = ORIGIN(FLASH);
         *(.vector_table);
         *(.text);
+        *(.data);
 	} >FLASH
 
-    /*
-    .RW_DATA : {
+    .bss : {
+        . = ORIGIN(RAM);
+        *(.bss);
     } >RAM
-    */
 }
