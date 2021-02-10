@@ -22,6 +22,8 @@ Reset_handler:
     // DMA_MemoryDataSize_Word or pin SF1 on the UDA1334A board needs to be
     // pulled high so set the UDA1334A into HalfWord (16 bit) mode
     //
+    // Table generator is currently producing 32-bit values
+    //
     ////////////////////////////////////////////////////////////////////////////
 
     // Set the DMA stream options...
@@ -60,3 +62,5 @@ Reset_handler:
     movt r3, #:upper16:SPI3_DR
     str r3, [r2]
 
+testSineTable:
+    .include "./tables/testSine.inc"
